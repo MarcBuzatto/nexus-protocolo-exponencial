@@ -218,7 +218,7 @@ export default function GameScreen({
               <Flame className="w-4 h-4" />
             </button>
             <div className="text-center text-[10px] text-white/40 tracking-widest mt-2">
-              DESAFIO GERADO POR IA · CLAUDE SONNET 4
+              DESAFIO FINAL · COMBINA 2 CONTEÚDOS
             </div>
           </div>
         </motion.div>

@@ -216,14 +216,14 @@ export default function HowToPlayModal({
                 <span className="text-cyber-red font-bold">
                   INICIAR PROTOCOLO FINAL
                 </span>{" "}
-                libera. O desafio é gerado ao vivo pela{" "}
-                <span className="text-matrix">IA (Claude)</span> combinando 2
-                dos 4 conteúdos. Você tem <strong>60 segundos</strong>. Acertou
-                = vitória. Errou = derrota.
+                libera. O desafio <strong>combina 2 dos 4 conteúdos</strong>{" "}
+                (ex: PA + Logaritmo) para testar tudo que você aprendeu. Você
+                tem <strong>60 segundos</strong>. Acertou = vitória. Errou =
+                derrota.
               </p>
-              <div className="text-[11px] text-white/50 italic border-l-2 border-cyber-yellow/50 pl-3">
-                Se a internet falhar, o jogo usa um desafio local para você não
-                ficar travado.
+              <div className="text-[11px] text-white/50 italic border-l-2 border-matrix/40 pl-3">
+                O jogo sorteia entre vários desafios diferentes, então cada
+                partida é única.
               </div>
             </section>
 

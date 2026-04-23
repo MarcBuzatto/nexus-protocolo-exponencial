@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Skull, Loader2, Cpu, ShieldAlert } from "lucide-react";
+import { Skull, Loader2, Cpu } from "lucide-react";
 import GlitchText from "./ui/GlitchText";
 import { BossQuestion, TOPIC_META } from "@/lib/types";
 import ChallengeModal from "./ChallengeModal";
@@ -90,13 +90,13 @@ export default function BossScreen({
               <div className="flex items-center justify-center gap-3 mb-3">
                 <Loader2 className="w-4 h-4 text-cyber-cyan animate-spin" />
                 <span className="text-xs tracking-widest text-cyber-cyan">
-                  SONNET 4 · GERANDO DESAFIO
+                  COMPILANDO DESAFIO FINAL
                 </span>
               </div>
               <div className="text-[10px] text-white/50 tracking-widest space-y-1">
-                <div>► CONECTANDO AO CÓRTEX NEURAL</div>
+                <div>► ESCANEANDO BRECHAS DO REAPER</div>
                 <div>► COMBINANDO 2 CONTEÚDOS</div>
-                <div>► VALIDANDO SCHEMA JSON</div>
+                <div>► ROTEANDO KILL-SWITCH</div>
               </div>
             </motion.div>
           )}
@@ -109,21 +109,10 @@ export default function BossScreen({
               className="panel panel-corner p-5 sm:p-6 mx-auto max-w-md"
             >
               <div className="flex items-center justify-center gap-3 mb-3">
-                {boss.source === "ai" ? (
-                  <>
-                    <Cpu className="w-4 h-4 text-matrix" />
-                    <span className="text-xs tracking-widest text-matrix">
-                      DESAFIO ÚNICO GERADO POR IA
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <ShieldAlert className="w-4 h-4 text-cyber-yellow" />
-                    <span className="text-xs tracking-widest text-cyber-yellow">
-                      MODO OFFLINE · DESAFIO LOCAL
-                    </span>
-                  </>
-                )}
+                <Cpu className="w-4 h-4 text-matrix" />
+                <span className="text-xs tracking-widest text-matrix">
+                  DESAFIO FINAL PRONTO
+                </span>
               </div>
               <div className="flex justify-center gap-2">
                 {boss.topics.map((t) => (

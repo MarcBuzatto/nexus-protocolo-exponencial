@@ -11,6 +11,7 @@ import EndScreen from "./EndScreen";
 import HowToPlayModal from "./HowToPlayModal";
 import { GameState, INITIAL_STATE, Action, BossQuestion } from "@/lib/types";
 import { makeLog, resolveChallenge, startChallenge } from "@/lib/gameLogic";
+import { drawBossQuestion } from "@/lib/bossQuestions";
 
 const FIRST_VISIT_KEY = "nexus_v1_seen_intro";
 
@@ -85,19 +86,15 @@ export default function NexusGame() {
     });
   }, []);
 
-  const launchBoss = useCallback(async () => {
+  const launchBoss = useCallback(() => {
     setState((s) => ({ ...s, phase: "boss" }));
     setBossLoading(true);
-    try {
-      const res = await fetch("/api/boss", { method: "POST" });
-      const data = (await res.json()) as BossQuestion;
-      setBoss(data);
-    } catch {
-      const { FALLBACK_BOSS } = await import("@/lib/questions");
-      setBoss(FALLBACK_BOSS);
-    } finally {
+    setBoss(null);
+    // Pequeno delay cinematográfico antes de revelar o desafio
+    setTimeout(() => {
+      setBoss(drawBossQuestion());
       setBossLoading(false);
-    }
+    }, 1400);
   }, []);
 
   const resolveBoss = useCallback(

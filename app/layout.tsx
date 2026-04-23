@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "NEXUS — Protocolo Exponencial",
   description:
-    "Você é o último hacker. REAPER dobra a cada turno. Resolva a matemática antes que 1024 servidores caiam. Jogo educativo com IA.",
+    "Você é o último hacker. REAPER dobra a cada turno. Resolva a matemática antes que 1024 servidores caiam. Jogo educativo de Exp, Log, PA e PG.",
   keywords: [
     "nexus",
     "jogo de matemática",
