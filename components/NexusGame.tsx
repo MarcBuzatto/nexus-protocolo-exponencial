@@ -79,7 +79,7 @@ export default function NexusGame() {
       const next = resolveChallenge(prev, idx);
       if (next.lastResult === "miss") {
         setShake(true);
-        setTimeout(() => setShake(false), 400);
+        setTimeout(() => setShake(false), 800);
       }
       return next;
     });
@@ -137,6 +137,7 @@ export default function NexusGame() {
 
   return (
     <div className={`relative min-h-screen ${shake ? "screen-shake" : ""}`}>
+      {shake && <div className="red-flash" />}
       <MatrixRain
         intensity={state.phase === "intro" ? 0.06 : 0.03}
         speed={state.phase === "boss" ? 1.8 : 1}

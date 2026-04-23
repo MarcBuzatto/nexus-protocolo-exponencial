@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, ChevronRight, Shield, Activity, Zap, HelpCircle } from "lucide-react";
+import { Terminal, ChevronRight, Shield, Activity, Zap, HelpCircle, Presentation } from "lucide-react";
+import Link from "next/link";
 import GlitchText from "./ui/GlitchText";
 
 const BOOT_LINES = [
@@ -193,12 +194,28 @@ export default function IntroScreen({
           )}
         </AnimatePresence>
 
+        {/* Slides link */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          className="mt-4 flex justify-center"
+        >
+          <Link
+            href="/slide"
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.3em] text-cyber-cyan/70 hover:text-cyber-cyan transition"
+          >
+            <Presentation className="w-3.5 h-3.5" />
+            ABRIR APRESENTAÇÃO / SLIDES
+          </Link>
+        </motion.div>
+
         {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-10 pt-6 border-t border-white/5 text-[10px] text-white/30 flex flex-wrap gap-x-6 gap-y-1 justify-center tracking-widest"
+          className="mt-6 pt-6 border-t border-white/5 text-[10px] text-white/30 flex flex-wrap gap-x-6 gap-y-1 justify-center tracking-widest"
         >
           <span>MARC CORREA BUZATTO</span>
           <span>JOÃO PEDRO SANDI</span>
