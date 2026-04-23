@@ -6,12 +6,10 @@ import { Terminal, ChevronRight, Shield, Activity, Zap, HelpCircle } from "lucid
 import GlitchText from "./ui/GlitchText";
 
 const BOOT_LINES = [
-  "[OK] Inicializando kernel NEXUS v4.7.2...",
-  "[OK] Descriptografando shards AES-256...",
-  "[OK] Conectando malha quantum-safe...",
-  "[!!] Anomalia detectada no segmento 0xREAPER",
-  "[OK] Carregando protocolo exponencial...",
-  "[OK] Canais seguros estabelecidos",
+  "[OK] Sistema iniciado",
+  "[OK] Conexão segura",
+  "[!!] Vírus detectado na rede",
+  "[OK] Pronto para operar",
 ];
 
 export default function IntroScreen({
@@ -82,9 +80,9 @@ export default function IntroScreen({
           <p className="font-display text-base sm:text-xl text-matrix tracking-[0.4em] font-semibold text-glow">
             PROTOCOLO EXPONENCIAL
           </p>
-          <p className="mt-3 text-sm text-white/50 max-w-lg mx-auto tracking-wide">
-            O vírus <span className="text-cyber-red font-bold">REAPER</span> dobra a cada turno.
-            Você tem até o servidor <span className="text-cyber-cyan font-bold">1024</span> antes da rede cair.
+          <p className="mt-3 text-sm text-white/60 max-w-lg mx-auto tracking-wide">
+            Use matemática para deter o vírus antes que
+            ele domine <span className="text-cyber-red font-bold">1024 servidores</span>.
           </p>
         </motion.div>
 

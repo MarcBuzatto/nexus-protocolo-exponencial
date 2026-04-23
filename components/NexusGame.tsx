@@ -13,15 +13,14 @@ import { GameState, INITIAL_STATE, Action, BossQuestion } from "@/lib/types";
 import { makeLog, resolveChallenge, startChallenge } from "@/lib/gameLogic";
 import { drawBossQuestion } from "@/lib/bossQuestions";
 
-const FIRST_VISIT_KEY = "nexus_v1_seen_intro";
+const FIRST_VISIT_KEY = "nexus_v2_seen_intro";
 
 export default function NexusGame() {
   const [state, setState] = useState<GameState>(() => ({
     ...INITIAL_STATE,
     log: [
-      makeLog(">> NEXUS 4.7.2 inicializado.", "system"),
-      makeLog(">> REAPER detectado. T-0. 1 servidor comprometido.", "warn"),
-      makeLog(">> Escolha uma operação.", "info"),
+      makeLog("Vírus detectado. 1 servidor infectado.", "warn"),
+      makeLog("Escolha sua primeira ação.", "info"),
     ],
   }));
 
@@ -63,8 +62,8 @@ export default function NexusGame() {
       ...INITIAL_STATE,
       phase: "intro",
       log: [
-        makeLog(">> NEXUS 4.7.2 reinicializado.", "system"),
-        makeLog(">> Aguardando operador.", "info"),
+        makeLog("Vírus detectado. 1 servidor infectado.", "warn"),
+        makeLog("Escolha sua primeira ação.", "info"),
       ],
       history: [{ turn: 0, infection: 1, firewall: 10, quantum: 2 }],
     });
@@ -94,7 +93,7 @@ export default function NexusGame() {
     setTimeout(() => {
       setBoss(drawBossQuestion());
       setBossLoading(false);
-    }, 1400);
+    }, 700);
   }, []);
 
   const resolveBoss = useCallback(
@@ -109,8 +108,8 @@ export default function NexusGame() {
         log: [
           makeLog(
             correct
-              ? ">> BOSS NEUTRALIZADO. Kill-switch executado. Rede segura."
-              : ">> FALHA CRÍTICA. REAPER se propagou sem limites.",
+              ? "Boss derrotado! Rede segura."
+              : "Boss venceu. Rede perdida.",
             correct ? "success" : "danger",
           ),
           ...s.log,

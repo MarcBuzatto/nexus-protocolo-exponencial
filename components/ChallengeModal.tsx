@@ -3,19 +3,19 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, X, AlertTriangle, Lightbulb, BookOpen } from "lucide-react";
-import { Question, TOPIC_META, Action } from "@/lib/types";
+import { Question, TOPIC_META, Action, CONFIG } from "@/lib/types";
 
 const ACTION_LABELS: Record<Action, string> = {
-  PATCH: "PATCH · EXPONENCIAL",
-  INTEL: "INTEL · LOGARITMO",
-  QUANTUM: "QUANTUM · PG",
+  PATCH: "REDUZIR · EXPONENCIAL",
+  INTEL: "INVESTIGAR · LOGARITMO",
+  QUANTUM: "ATACAR · PG",
 };
 
 export default function ChallengeModal({
   open,
   question,
   action,
-  timeLimit = 45,
+  timeLimit = CONFIG.CHALLENGE_TIME,
   onResolve,
 }: {
   open: boolean;

@@ -58,17 +58,14 @@ function applyActionSuccess(state: GameState, action: Action): GameState {
     case "PATCH": {
       const newInf = Math.max(1, Math.floor(state.infection / 2));
       log.unshift(
-        makeLog(
-          `> PATCH aplicado. Infecção: ${state.infection} → ${newInf}`,
-          "success",
-        ),
+        makeLog(`✓ Infecção reduzida: ${state.infection} → ${newInf}`, "success"),
       );
       return { ...state, infection: newInf, log };
     }
     case "INTEL": {
       const clues = Math.min(CONFIG.CLUES_TO_BOSS, state.clues + 1);
       log.unshift(
-        makeLog(`> INTEL coletado. Pistas: ${clues}/${CONFIG.CLUES_TO_BOSS}`, "success"),
+        makeLog(`✓ Pista coletada (${clues}/${CONFIG.CLUES_TO_BOSS})`, "success"),
       );
       return { ...state, clues, log };
     }
@@ -77,10 +74,7 @@ function applyActionSuccess(state: GameState, action: Action): GameState {
       const damage = Math.pow(CONFIG.QUANTUM_BASE, streak);
       const newInf = Math.max(1, state.infection - damage);
       log.unshift(
-        makeLog(
-          `> QUANTUM x${streak} → dano ${damage}. Infecção: ${state.infection} → ${newInf}`,
-          "success",
-        ),
+        makeLog(`✓ Ataque acerta: −${damage} na infecção`, "success"),
       );
       return {
         ...state,
@@ -97,18 +91,13 @@ function applyActionFail(state: GameState, action: Action): GameState {
   const log = [...state.log];
   switch (action) {
     case "PATCH":
-      log.unshift(makeLog("> PATCH falhou. Nenhum efeito.", "danger"));
+      log.unshift(makeLog("✗ Patch falhou", "danger"));
       return { ...state, log };
     case "INTEL":
-      log.unshift(makeLog("> INTEL corrompido. Pista perdida.", "danger"));
+      log.unshift(makeLog("✗ Investigação falhou", "danger"));
       return { ...state, log };
     case "QUANTUM":
-      log.unshift(
-        makeLog(
-          `> QUANTUM desincronizado. Streak ${state.streak} → 0.`,
-          "danger",
-        ),
-      );
+      log.unshift(makeLog("✗ Ataque falhou", "danger"));
       return { ...state, streak: 0, log };
   }
 }
@@ -122,7 +111,7 @@ function endOfTurn(state: GameState): GameState {
   const firewall = state.firewall + CONFIG.FIREWALL_STEP;
   const log = [...state.log];
   log.unshift(
-    makeLog(`>> TURNO ${turn} · REAPER dobrou · infecção ${infection}`, "warn"),
+    makeLog(`Turno ${turn} · vírus dobrou (agora ${infection})`, "warn"),
   );
 
   const snapshot = {
@@ -146,10 +135,7 @@ function endOfTurn(state: GameState): GameState {
       ...next,
       phase: "defeat",
       log: [
-        makeLog(
-          `>> ALERTA CRÍTICO: ${infection} servidores infectados. REAPER domina a rede.`,
-          "danger",
-        ),
+        makeLog(`Vírus chegou a ${infection}. Rede tomada.`, "danger"),
         ...log,
       ],
     };
@@ -159,10 +145,7 @@ function endOfTurn(state: GameState): GameState {
       ...next,
       phase: "defeat",
       log: [
-        makeLog(
-          `>> TEMPO ESGOTADO: o perímetro caiu após ${turn} turnos.`,
-          "danger",
-        ),
+        makeLog(`Turno ${turn}. Tempo esgotado.`, "danger"),
         ...log,
       ],
     };

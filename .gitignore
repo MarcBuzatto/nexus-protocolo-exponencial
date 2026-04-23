@@ -46,3 +46,5 @@ next-env.d.ts
 
 # projeto pessoal — não subir o documento do trabalho
 PROJETO_NEXUS_Digital-1.docx
+
+.vercel

@@ -25,7 +25,7 @@ export default function BossScreen({
       const t = setTimeout(() => {
         onLoaded();
         setShowChallenge(true);
-      }, 1500);
+      }, 800);
       return () => clearTimeout(t);
     }
   }, [boss, loading, onLoaded]);
@@ -137,7 +137,7 @@ export default function BossScreen({
         open={showChallenge}
         question={boss}
         action={"PATCH"}
-        timeLimit={60}
+        timeLimit={45}
         onResolve={(idx) => {
           setShowChallenge(false);
           onResolve(idx);

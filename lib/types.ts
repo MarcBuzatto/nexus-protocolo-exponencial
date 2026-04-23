@@ -70,12 +70,14 @@ export const INITIAL_STATE: GameState = {
 
 export const CONFIG = {
   INFECTION_LIMIT: 1024,
-  MAX_TURNS: 12,
+  MAX_TURNS: 10,
   INITIAL_INFECTION: 1,
   INITIAL_FIREWALL: 10,
   FIREWALL_STEP: 5,
-  CLUES_TO_BOSS: 3,
+  CLUES_TO_BOSS: 2,
   QUANTUM_BASE: 2,
+  CHALLENGE_TIME: 30,
+  BOSS_TIME: 45,
 } as const;
 
 export const TOPIC_META: Record<
